@@ -1,0 +1,27 @@
+---
+title: "IMDBProject"
+author: "Ethan Mitten"
+date: "1/9/2020"
+output: html_document
+---
+
+```{r loadpackages}
+library(tidyverse)
+library(modelr)
+library(cvTools)
+library(glmnet)
+```
+
+```{r dataset}
+library(readxl)
+View(IMDBDataSciProject)
+```
+
+
+```{r correlation}
+summary(lm1 <- lm(MyRating~UserRating+Genre+MovieorTV, data = IMDBDataSciProject))
+slm1 <- step(lm1)
+summary(slm1)
+```
+
+```
